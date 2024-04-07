@@ -29,4 +29,9 @@ urlpatterns = [
     path('cuadro-2/', views.Mcuadro_2, name='Mcuadro_2'),
     path('cuadro-3/', views.Mcuadro_3, name='Mcuadro_3'),
     path('cuadro-4/', views.Mcuadro_4, name='Mcuadro_4'),
+    path('cuadro-1/', views.Hcuadro_1, name='Hcuadro_1'),
+    path('cuadro-2/', views.Hcuadro_2, name='Hcuadro_2'),
+    path('cuadro-3/', views.Hcuadro_3, name='Hcuadro_3'),
+    path('cuadro-4/', views.Hcuadro_4, name='Hcuadro_4'),
+    path('recetas/<str:categoria>/', views.mostrar_recetas_por_categoria, name='mostrar_recetas_por_categoria'),
 ]

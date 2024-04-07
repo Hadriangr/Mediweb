@@ -52,10 +52,24 @@ class Pago(models.Model):
 
 
 class RecetaMedica(models.Model):
-    paciente = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    # Otros campos relacionados con la receta médica
-    fecha_emision = models.DateField(auto_now_add=True)
-    examenes = models.TextField(blank=True)
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=100)
+    descripcion = models.TextField()
+    categoria = models.CharField(max_length=100, choices=[
+        ('ETS', 'Chequeo de ETS'),
+        ('Embarazo', 'Chequeo de Embarazo'),
+        ('Examenes', 'Examenes')
+    ])
+    fecha_emision = models.DateField()
 
     def __str__(self):
-        return f"Receta para {self.paciente} - Emitida el {self.fecha_emision}"
+        return self.nombre
+    
+
+
+class examen(models.Model):
+    nombre = models.CharField(max_length=100)
+    descripcion = models.TextField()
+
+    def __str__(self):
+        return self.nombre
