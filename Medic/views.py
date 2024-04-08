@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .models import Pago,RecetaMedica,examen
 from .forms import RegistroForm
-
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
 def index(request):
     return render(request, 'index.html')
@@ -103,3 +104,11 @@ def Hcuadro_3(request):
 
 def Hcuadro_4(request):
     return render_cuadro(request, 'Cuadro 4', 'Contenido del cuadro 4', 'Hcuadro_4.html')
+
+
+
+
+class signupview(CreateView):
+    form_class = RegistroForm
+    success_url = reverse_lazy('login')
+    template_name = 'signup.html'

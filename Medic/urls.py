@@ -34,4 +34,5 @@ urlpatterns = [
     path('cuadro-3/', views.Hcuadro_3, name='Hcuadro_3'),
     path('cuadro-4/', views.Hcuadro_4, name='Hcuadro_4'),
     path('recetas/<str:categoria>/', views.mostrar_recetas_por_categoria, name='mostrar_recetas_por_categoria'),
+    path('signup/', views.signupview.as_view(), name='signup'),
 ]
