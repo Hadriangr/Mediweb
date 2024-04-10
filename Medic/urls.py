@@ -22,7 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),
     path('pago/<int:pago_id>/', views.detalle_pago, name='detalle_pago'),
-    path('registro/', views.registro_usuario, name='registro_usuario'),
     path('examenes-hombre/', views.examenes_hombre, name='examenes_hombre'),
     path('examenes-mujer/', views.examenes_mujer, name='examenes_mujer'),
     path('cuadro-1/', views.Mcuadro_1, name='Mcuadro_1'),
@@ -34,5 +33,5 @@ urlpatterns = [
     path('cuadro-3/', views.Hcuadro_3, name='Hcuadro_3'),
     path('cuadro-4/', views.Hcuadro_4, name='Hcuadro_4'),
     path('recetas/<str:categoria>/', views.mostrar_recetas_por_categoria, name='mostrar_recetas_por_categoria'),
-    path('signup/', views.signupview.as_view(), name='signup'),
+    path('signup/', views.registro_usuario, name='signup'),
 ]

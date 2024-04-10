@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Pago,RecetaMedica,examen
 from .forms import RegistroForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
+from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth import login
 
 def index(request):
     return render(request, 'index.html')
@@ -30,12 +32,7 @@ def registro_usuario(request):
             return redirect('index')  # Redirige a la página de inicio después del registro exitoso
     else:
         form = RegistroForm()
-    return render(request, 'registro.html', {'form': form})
-
-def examenes_mujer(request):
-    examenes = examen.objects.all()  # Suponiendo que tienes un modelo llamado Examen
-    return render(request, 'examenes_mujer.html', {'examenes': examenes})
-
+    return render(request, 'signup.html', {'form': form})
 
 
 
